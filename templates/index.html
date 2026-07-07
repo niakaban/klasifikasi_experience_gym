@@ -123,6 +123,32 @@
     margin-right: auto;
   }
 
+  .tips-box {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tips-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: 10px;
+  }
+
+  .tips-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .tips-list li { margin-bottom: 6px; }
+  .tips-list li:last-child { margin-bottom: 0; }
+
   .banner {
     padding: 14px 18px;
     border-radius: 12px;
@@ -256,6 +282,18 @@
       <span>Level 1 — Pemula</span>
       <span>Level 2 — Menengah</span>
     </div>
+
+    {% if tips %}
+    <div class="tips-box">
+      <div class="tips-title">{{ tips.judul }}</div>
+      <ul class="tips-list">
+        {% for poin in tips.poin %}
+        <li>{{ poin }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
   </div>
   {% endif %}
 
